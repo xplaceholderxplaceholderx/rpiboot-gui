@@ -30,6 +30,16 @@ The log pane shows every command and its output.
 cargo run --release
 ```
 
+## Installer
+
+```
+packaging/make-dmg.sh
+```
+
+builds `dist/rpiboot-gui.app` and a DMG for the Mac's own architecture. The
+app is ad-hoc signed and not notarised, so on another Mac use right-click >
+Open the first time.
+
 ## Use
 
 1. Fit the module's `nRPIBOOT` / "disable eMMC boot" jumper on the carrier

@@ -445,6 +445,10 @@ impl eframe::App for App {
 }
 
 fn main() -> eframe::Result<()> {
+    // An app started from Finder gets a bare PATH; usbboot's build and its
+    // EEPROM script need Homebrew's pkg-config and python3.
+    let path = std::env::var("PATH").unwrap_or_default();
+    std::env::set_var("PATH", format!("/opt/homebrew/bin:/usr/local/bin:{}", path));
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default().with_inner_size([980.0, 620.0]).with_title("rpiboot"),
         ..Default::default()
